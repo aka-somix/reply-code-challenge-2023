@@ -1,8 +1,5 @@
-import sys
+from game.cell import Cell
 
-sys.path.append('..')
-
-from game import Cell
 
 def read_input(filename):
     with open(filename, 'r') as file:
