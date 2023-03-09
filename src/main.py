@@ -5,12 +5,15 @@ from disk.write_output import write_output
 
 from strategies.helloworld import play_helloworld
 
+from game.cell import Cell, Wormhole
+
 
 class Game(object):
 
     def __init__(self, *, input, output):
         # Matrice del gioco (se ci sara)
-        self.matrix = [[], []]
+        self.matrix: list(list(Cell|Wormhole)) = [[], []]
+        self.snakes = []
 
         # Path dell'input
         self.input = input
@@ -28,7 +31,8 @@ class Game(object):
         """
         TODO definisci l'output del metodo write input
         """
-        self.matrix = read_input(self.input)
+        self.matrix, self.snakes = read_input(self.input)
+        print(self.matrix)
 
     def play_scenario(self):
         """
@@ -43,7 +47,7 @@ if __name__ == "__main__":
     INPUT, OUTPUT = argv[1:3]
 
     # Inizializza la classe game con il nome del file della soluzione
-    game = Game(input="test.txt", output="output_test.txt")
+    game = Game(input=INPUT, output=OUTPUT)
 
     # Leggi l'input
     game.read_scenario()
