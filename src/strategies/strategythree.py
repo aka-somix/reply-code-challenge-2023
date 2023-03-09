@@ -53,7 +53,6 @@ def play_strategy_three(matrix , snakes):
                         s.moves=[]
                         s.starting_cell=[]
                         continue
-                    print(s)
                 # posiziono la seconda cella del serpente
         if skip_snake:
             continue

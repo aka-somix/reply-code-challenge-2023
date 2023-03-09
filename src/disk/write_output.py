@@ -9,9 +9,12 @@ def write_output(snakes, output_file_path):
         for i, snake in enumerate(snakes):
             if snake.cells  != []:
                 f.write(f"{snake.starting_cell[0]} {snake.starting_cell[1]} ")
-                for move in snake.moves:
+                for j, move in enumerate(snake.moves):
                     if len(move) > 1:
-                        f.write(f"{move[0]} {move[1]} ")
+                        f.write(f"{move[0]} {move[1]}")
                     else:
-                        f.write(f"{move} ")
-            f.write('\n')
+                        f.write(f"{move}")
+                    if j != len(snake.moves) -1 :
+                        f.write(" ")
+            if i != len(snakes) -1 :
+                f.write('\n')
