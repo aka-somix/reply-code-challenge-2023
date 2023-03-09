@@ -1,4 +1,4 @@
-from cell import Cell, Wormhole
+from game.cell import Cell, Wormhole
 class Snake:
     starting_cell = list()
     moves = list()
