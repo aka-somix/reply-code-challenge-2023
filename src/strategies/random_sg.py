@@ -5,6 +5,7 @@ import random
 def play_random(snakes, matrix):
 
     for snake in snakes:
+        print(f"-------------------- {snake} -------------------------------")
         play_snake(snake, matrix)
 
 
@@ -12,17 +13,16 @@ def play_snake(snake: Snake, matrix):
     nrows = len(matrix)
     ncols = len(matrix[0])
 
-    print(f"{nrows}|{ncols}")
-
-    is_wh = True
-
     init_row = random.randint(0, nrows - 1)
     init_col = random.randint(0, ncols - 1)
+    is_wh = True
+
+    print("CHOOSING STARTING POSITION")
 
     while is_wh:
-        print(f"{init_row}|{init_col}")
+        init_row = random.randint(0, nrows - 1)
+        init_col = random.randint(0, ncols - 1)
         cell = matrix[init_row][init_col]
-
         is_wh = cell.wh
 
     snake.starting_cell = (init_row, init_col)
@@ -30,7 +30,11 @@ def play_snake(snake: Snake, matrix):
     cur_row = init_row
     cur_col = init_col
 
-    while snake.snake_length > 0:
+    print("MOVING!")
+
+    for iter in range(snake.snake_length):
+
+        print(f"ITERATION: {iter}")
 
         directions = ["U", "R", "D", "L"]
         random.shuffle(directions)
@@ -53,8 +57,6 @@ def play_snake(snake: Snake, matrix):
             elif d == "L":
                 next_pos = cur_cell.left()
 
-            print(f"next pos: {next_pos}")
-
             next_pos = (next_pos[0][0], next_pos[0][1])
 
             next_cell = matrix[next_pos[0]][next_pos[1]]
@@ -64,7 +66,7 @@ def play_snake(snake: Snake, matrix):
 
         if next_cell.row < 0 and next_cell.col < 0:
             # TODO RESET SNAKE
-            continue
+            return
 
         print(snake.cells)
 
