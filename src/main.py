@@ -4,6 +4,7 @@ from disk.read_input import read_input
 from disk.write_output import write_output
 
 from strategies.helloworld import play_helloworld
+from strategies.random_sg import play_random
 
 from game.cell import Cell, Wormhole
 
@@ -12,7 +13,7 @@ class Game(object):
 
     def __init__(self, *, input, output):
         # Matrice del gioco (se ci sara)
-        self.matrix: list(list(Cell|Wormhole)) = [[], []]
+        self.matrix: list(list(Cell | Wormhole)) = [[], []]
         self.snakes = []
 
         # Path dell'input
@@ -37,7 +38,7 @@ class Game(object):
         """
         Swappa i metodi di gioco inserendo importando un metodo
         """
-        play_helloworld()
+        play_random(self.snakes, self.matrix)
 
 
 if __name__ == "__main__":
