@@ -30,6 +30,9 @@ class Cell:
     def __str__(self):
         return self.value
 
+    def __repr__(self):
+        return self.value
+
 
 class Wormhole(Cell):
 
@@ -37,6 +40,11 @@ class Wormhole(Cell):
         super().__init__(row, col, value, nrows, ncols)
 
         self.wh_list = []
+
+    def set_wh_list(self, wh_list):
+        self.wh_list = []
+        for val in wh_list:
+            self.wh_list.append(val)
 
     def up(self):
         r = (self.row + 1) % self.nrows
@@ -59,4 +67,7 @@ class Wormhole(Cell):
         return [(r, c)]
 
     def __str__(self):
+        return "*"
+
+    def __repr__(self):
         return "*"
