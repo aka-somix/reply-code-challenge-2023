@@ -13,7 +13,7 @@ class Game(object):
 
     def __init__(self, *, input, output):
         # Matrice del gioco (se ci sara)
-        self.matrix: list(list(Cell|Wormhole)) = [[], []]
+        self.matrix: list(list(Cell | Wormhole)) = [[], []]
         self.snakes = []
 
         # Path dell'input

@@ -50,9 +50,10 @@ class Wormhole(Cell):
 
     def up(self):
         position_list = []
+        print(self.wh_list)
         for wh in self.wh_list:
-            r = (wh.row + 1) % self.nrows
-            c = wh.col
+            r = (wh[0] + 1) % self.nrows
+            c = wh[1]
             position_list.append((r, c))
 
         return position_list
@@ -60,8 +61,8 @@ class Wormhole(Cell):
     def down(self):
         position_list = []
         for wh in self.wh_list:
-            r = (wh.row + self.nrows - 1) % self.nrows
-            c = wh.col
+            r = (wh[0] + self.nrows - 1) % self.nrows
+            c = wh[1]
             position_list.append((r, c))
 
         return position_list
@@ -69,8 +70,8 @@ class Wormhole(Cell):
     def right(self):
         position_list = []
         for wh in self.wh_list:
-            r = wh.row
-            c = (wh.col + 1) % self.ncols
+            r = wh[0]
+            c = (wh[1] + 1) % self.ncols
             position_list.append((r, c))
 
         return position_list
@@ -78,8 +79,8 @@ class Wormhole(Cell):
     def left(self):
         position_list = []
         for wh in self.wh_list:
-            r = wh.row
-            c = (wh.col - 1 + self.ncols) % self.ncols
+            r = wh[0]
+            c = (wh[1] - 1 + self.ncols) % self.ncols
             position_list.append((r, c))
 
         return position_list
