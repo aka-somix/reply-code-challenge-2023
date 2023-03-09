@@ -1,11 +1,10 @@
 from game.cell import Cell, Wormhole
-class Snake:
-    starting_cell = list()
-    moves = list()
-    cells = list()
-
+class Snake: 
     def __init__(self, snake_length):
         self.snake_length = snake_length
+        self.starting_cell = list()
+        self.moves = list()
+        self.cells = list()
 
     def set_starting_cell(self, cell: Cell | Wormhole):
         self.starting_cell = (cell.col, cell.row)
@@ -25,4 +24,4 @@ class Snake:
         return sum([c.value for c in self.cells])
 
     def __repr__(self):
-        return str(self.snake_length)
+        return str(self.cells)

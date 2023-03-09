@@ -7,8 +7,11 @@ def write_output(snakes, output_file_path):
     """
     with open(output_file_path, 'w') as f:
         for i, snake in enumerate(snakes):
-            if snake is None:
-                f.write('\n')
-            else:
-                c, r, direction, cw, rw = snake
-                f.write(f"{c} {r} {direction} {cw} {rw}\n")
+            if snake.cells  != []:
+                f.write(f"{snake.starting_cell[0]} {snake.starting_cell[1]}")
+                for move in snake.moves:
+                    if len(move) > 1:
+                        f.write(f"{move[0]} {move[1]}")
+                    else:
+                        f.write(move)
+            f.write('\n')

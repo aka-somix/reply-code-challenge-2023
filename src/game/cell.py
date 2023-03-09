@@ -33,7 +33,7 @@ class Cell:
         return self.value
 
     def __repr__(self):
-        return str(self.value)
+        return str(f'{self.col} {self.row}')
 
 
 class Wormhole(Cell):

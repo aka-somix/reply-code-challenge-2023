@@ -4,6 +4,7 @@ from disk.read_input import read_input
 from disk.write_output import write_output
 
 from strategies.helloworld import play_helloworld
+from strategies.strategythree import play_strategy_three
 
 from game.cell import Cell, Wormhole
 
@@ -37,7 +38,7 @@ class Game(object):
         """
         Swappa i metodi di gioco inserendo importando un metodo
         """
-        play_helloworld()
+        play_strategy_three(self.matrix, self.snakes)
 
 
 if __name__ == "__main__":
