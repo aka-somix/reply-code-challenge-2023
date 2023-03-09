@@ -31,7 +31,6 @@ def play_strategy_three(matrix , snakes):
                 # posiziono la cella del serpente
                 s.set_starting_cell(all_cells[0])
                 all_cells.pop(0)
-                print(snakes)
             # dal 2 indice alla fine sel serpente
             else:                
                 # dalla cella trovata guardo le celle che ho attorno e prendo quella libera da valore max
@@ -54,6 +53,7 @@ def play_strategy_three(matrix , snakes):
                         s.moves=[]
                         s.starting_cell=[]
                         continue
+                    print(s)
                 # posiziono la seconda cella del serpente
         if skip_snake:
             continue

@@ -9,12 +9,12 @@ class Cell:
         self.free = True
         self.wh = False
 
-    def up(self):
+    def down(self):
         r = (self.row + 1) % self.nrows
         c = self.col
         return [(r, c)]
 
-    def down(self):
+    def up(self):
         r = (self.row + self.nrows - 1) % self.nrows
         c = self.col
         return [(r, c)]
@@ -48,21 +48,20 @@ class Wormhole(Cell):
         for val in wh_list:
             self.wh_list.append(val)
 
-    def up(self):
+    def down(self):
         position_list = []
-        print(self.wh_list)
         for wh in self.wh_list:
-            r = (wh[0] + 1) % self.nrows
-            c = wh[1]
+            r = (wh.row + 1) % self.nrows
+            c = wh.col
             position_list.append((r, c))
 
         return position_list
 
-    def down(self):
+    def up(self):
         position_list = []
         for wh in self.wh_list:
-            r = (wh[0] + self.nrows - 1) % self.nrows
-            c = wh[1]
+            r = (wh.row + self.nrows - 1) % self.nrows
+            c = wh.col
             position_list.append((r, c))
 
         return position_list
@@ -70,8 +69,8 @@ class Wormhole(Cell):
     def right(self):
         position_list = []
         for wh in self.wh_list:
-            r = wh[0]
-            c = (wh[1] + 1) % self.ncols
+            r = wh.row
+            c = (wh.col + 1) % self.ncols
             position_list.append((r, c))
 
         return position_list
@@ -79,8 +78,8 @@ class Wormhole(Cell):
     def left(self):
         position_list = []
         for wh in self.wh_list:
-            r = wh[0]
-            c = (wh[1] - 1 + self.ncols) % self.ncols
+            r = wh.row
+            c = (wh.col - 1 + self.ncols) % self.ncols
             position_list.append((r, c))
 
         return position_list
