@@ -6,6 +6,7 @@ class Cell:
         self.nrows = nrows
         self.ncols = ncols
         self.value = value
+        self.wh = False
 
     def up(self):
         r = (self.row + 1) % self.nrows
@@ -38,7 +39,7 @@ class Wormhole(Cell):
 
     def __init__(self, row, col, value, nrows, ncols):
         super().__init__(row, col, value, nrows, ncols)
-
+        self.wh = True
         self.wh_list = []
 
     def set_wh_list(self, wh_list):
