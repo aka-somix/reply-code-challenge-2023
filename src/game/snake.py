@@ -7,9 +7,10 @@ class Snake:
     def __init__(self, snake_length):
         self.snake_length = snake_length
 
-    def set_starting_cell(self, col, row):
-        self.starting_cell = (col, row)
-        self.cells.append(self.starting_cell)
+    def set_starting_cell(self, cell: Cell | Wormhole):
+        self.starting_cell = (cell.col, cell.row)
+        self.cells.append(cell)
+        cell.free=False
 
     def move_snake(self, direction, cell: Cell | Wormhole):
         if cell.wh:
@@ -18,6 +19,7 @@ class Snake:
         else:
             self.moves.append(direction)
         self.cells.append(cell)
+        cell.free=False
     
     def compute_score(self):
         return sum([c.value for c in self.cells])
