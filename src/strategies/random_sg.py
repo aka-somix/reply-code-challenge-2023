@@ -4,9 +4,12 @@ import random
 
 def play_random(snakes, matrix):
 
-    for snake in snakes:
-        print(f"-------------------- {snake} -------------------------------")
-        play_snake(snake, matrix)
+    print(f"SNAKES {snakes}")
+
+    for s in snakes:
+        print(f"-------------------- {s} -------------------------------")
+        print(s.moves)
+        play_snake(s, matrix)
 
 
 def play_snake(snake: Snake, matrix):
@@ -47,15 +50,16 @@ def play_snake(snake: Snake, matrix):
         for d in directions:
             if d == "U":
                 next_pos = cur_cell.up()
-
+                next_dir = "U"
             elif d == "R":
                 next_pos = cur_cell.right()
-
+                next_dir = "R"
             elif d == "D":
                 next_pos = cur_cell.down()
-
+                next_dir = "D"
             elif d == "L":
                 next_pos = cur_cell.left()
+                next_dir = "L"
 
             next_pos = (next_pos[0][0], next_pos[0][1])
 
@@ -68,9 +72,12 @@ def play_snake(snake: Snake, matrix):
             # TODO RESET SNAKE
             return
 
-        print(snake.cells)
+        print(snake.moves)
 
         snake.move_snake(next_dir, next_cell)
+
+        print(snake.moves)
+
         cur_row = next_pos[0]
         cur_col = next_pos[1]
 
