@@ -6,6 +6,7 @@ class Cell:
         self.nrows = nrows
         self.ncols = ncols
         self.value = value
+        self.free = True
         self.wh = False
 
     def up(self):
