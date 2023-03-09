@@ -11,7 +11,7 @@ def write_output(snakes, output_file_path):
                 f.write(f"{snake.starting_cell[0]} {snake.starting_cell[1]}")
                 for move in snake.moves:
                     if len(move) > 1:
-                        f.write(f"{move[0]} {move[1]}")
+                        f.write(f"{move[0]} {move[1]} ")
                     else:
-                        f.write(move)
+                        f.write(f"{move} ")
             f.write('\n')
