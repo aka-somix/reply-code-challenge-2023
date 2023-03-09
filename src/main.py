@@ -39,6 +39,7 @@ class Game(object):
 
 if __name__ == "__main__":
 
+    # TAKE INPUT FROM ARGS
     INPUT, OUTPUT = argv[1:3]
 
     # Inizializza la classe game con il nome del file della soluzione
