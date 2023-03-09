@@ -10,19 +10,19 @@ class Cell:
     def up(self):
         r = (self.row + 1) % self.nrows
         c = self.col
-        return (r, c)
+        return [(r, c)]
 
     def down(self):
         r = (self.row + self.nrows - 1) % self.nrows
         c = self.col
-        return (r, c)
+        return [(r, c)]
 
     def right(self):
         r = self.row
         c = (self.col + 1) % self.ncols
-        return (r, c)
+        return [(r, c)]
 
     def left(self):
         r = self.row
         c = (self.col - 1 + self.ncols) % self.ncols
-        return (r, c)
+        return [(r, c)]
