@@ -25,14 +25,15 @@ class Game(object):
         """
         TODO definisci l'input del metodo write output
         """
-        self.matrix = write_output(self.output)
+        self.matrix = write_output(self.snakes, self.output)
 
     def read_scenario(self):
         """
         TODO definisci l'output del metodo write input
         """
         self.matrix, self.snakes = read_input(self.input)
-        print(self.matrix)
+        print('read input')
+        # print(self.matrix)
 
     def play_scenario(self):
         """
