@@ -18,10 +18,10 @@ def play_strategy_three(matrix , snakes):
 
     # ordino i serpenti per grandezza discendente
 
-    snakes.sort(key=lambda x: x.snake_length, reverse=True)
+    sorted_snakes = sorted(snakes, key=lambda x: x.snake_length, reverse=True)
     
     # ciclo su tutti i serpenti
-    for s in snakes:
+    for s in sorted_snakes:
         skip_snake=False
         # ciclo sulla lunghezza del serpente
         for i in range(s.snake_length):
@@ -29,11 +29,16 @@ def play_strategy_three(matrix , snakes):
             if i == 0:
                 # cerco una cella libera dal massimo valore nella matrice
                 # posiziono la cella del serpente
+                if not all_cells[0].free:
+                    skip_snake=True
+                    continue
                 s.set_starting_cell(all_cells[0])
                 all_cells.pop(0)
+                print(s.cells)
             # dal 2 indice alla fine sel serpente
             else:                
                 # dalla cella trovata guardo le celle che ho attorno e prendo quella libera da valore max
+                    print(s.cells)
                     current_cell=s.cells[-1]
                     tmp=[
                         [('L', matrix[x][y]) for (x, y) in current_cell.left()],
@@ -45,14 +50,17 @@ def play_strategy_three(matrix , snakes):
                     adjacent_cells.sort(key= lambda x: x[1].value if x[1].free else -1, reverse=True)
                     if adjacent_cells[0][1].free:
                         s.move_snake(adjacent_cells[0][0], adjacent_cells[0][1])
+                        all_cells.remove(adjacent_cells[0][1])
                     else:
                         skip_snake=True
                         for cell in s.cells:
                             cell.free = True
+                            all_cells.append(cell)
+                        all_cells.sort(key=lambda x: x.value, reverse=True)
                         s.cells=[]
                         s.moves=[]
                         s.starting_cell=[]
-                        continue
+                        break
                 # posiziono la seconda cella del serpente
         if skip_snake:
             continue

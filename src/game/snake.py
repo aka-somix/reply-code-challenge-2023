@@ -5,9 +5,9 @@ class Snake:
 
     def __init__(self, snake_length):
         self.snake_length = snake_length
-        self.starting_cell = list()
-        self.moves = list()
-        self.cells = list()
+        self.starting_cell = []
+        self.moves = []
+        self.cells = []
 
     def set_starting_cell(self, cell: Cell | Wormhole):
         self.starting_cell = (cell.col, cell.row)
