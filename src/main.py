@@ -28,10 +28,8 @@ class Game(object):
         self.matrix = write_output(self.snakes, self.output)
 
     def read_scenario(self):
-        """
-        TODO definisci l'output del metodo write input
-        """
         self.matrix, self.snakes = read_input(self.input)
+        print(self.snakes)
         print('read input')
         # print(self.matrix)
 

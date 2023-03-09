@@ -1,5 +1,6 @@
 from game.cell import Cell
 from game.cell import Wormhole
+from game.snake import Snake
 
 
 def read_input(filename):
@@ -7,7 +8,7 @@ def read_input(filename):
         # read the first line of the file to get the number of columns and rows
         num_cols, num_rows, num_snakes = map(int, file.readline().strip().split())
 
-        snakes = map(int, file.readline().strip().split())
+        snakes = [Snake(s) for s in map(int, file.readline().strip().split())]
 
         # create a 2D array to store the cells
         cells: list(list(Cell | Wormhole)) = [[None for _ in range(num_cols)] for _ in range(num_rows)]

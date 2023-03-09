@@ -14,3 +14,5 @@ class Snake:
             self.moves.append(wormhole_coords)
         else:
             self.moves.append(direction)
+    def __repr__(self):
+        return str(self.snake_length)
